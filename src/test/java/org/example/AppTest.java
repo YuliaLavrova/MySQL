@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.sql.SQLException;
 import java.util.List;
 
-public class AppTest{
+public class AppTest {
 
     @Test
     public void getStudentTest() throws SQLException {
@@ -28,11 +28,20 @@ public class AppTest{
         StudentDAO studentDAO = new StudentDAO();
         List<Student> list = studentDAO.getStudents();
         System.out.println(list);
-        Student student = new Student("Alex", "Pen", 22, 1);
+        Student student = new Student("Leo", "Dilan", 22, 1);
         System.out.println(student);
         studentDAO.insert(student);
         List<Student> list2 = studentDAO.getStudents();
         System.out.println(list2);
     }
 
+    @Test
+    public void deleteStudentsTest() throws SQLException {
+        StudentDAO studentDAO = new StudentDAO();
+        List<Student> list1 = studentDAO.getStudents();
+        System.out.println(list1);
+        studentDAO.deleteStudentById(4);
+        List<Student> list2 = studentDAO.getStudents();
+        System.out.println(list2);
+    }
 }

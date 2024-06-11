@@ -21,6 +21,7 @@ public class StudentDAO {
                 student.setStudentName(resultSet.getString("first_name"));
                 student.setStudentLastName(resultSet.getString("last_name"));
                 student.setAge(resultSet.getInt("age"));
+                student.setStudentGroup(resultSet.getInt("students_group_id"));
             }
         } finally {
             resultSet.close();
@@ -44,6 +45,7 @@ public class StudentDAO {
                 student.setStudentName(resultSet.getString("first_name"));
                 student.setStudentLastName(resultSet.getString("last_name"));
                 student.setAge(resultSet.getInt("age"));
+                student.setStudentGroup(resultSet.getInt("students_group_id"));
                 list.add(student);
             }
         } finally {
@@ -55,7 +57,7 @@ public class StudentDAO {
     }
 
     public void insert(Student student) throws SQLException {
-        String query = "INSERT INTO 'mydb'.'students'('first_name', 'last_name', 'age', 'students'_group_id') VALUES (?, ?, ?, ?);";
+        String query = "INSERT INTO mydb.students(`first_name`, `last_name`, `age`, `students_group_id`) VALUES (?, ?, ?, ?);";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -65,6 +67,19 @@ public class StudentDAO {
             preparedStatement.setString(2, student.getStudentLastName());
             preparedStatement.setInt(3, student.getAge());
             preparedStatement.setInt(4, student.getStudentGroup());
+            preparedStatement.execute();
+        } finally {
+            preparedStatement.close();
+            connection.close();
+        }
+    }
+    public void deleteStudentById(int id) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "admin");
+            preparedStatement = connection.prepareStatement("DELETE FROM `mydb`.`students` WHERE id=?;");
+            preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } finally {
             preparedStatement.close();

@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e872dc4-8bae-47e2-b0a2-ac03c1d375e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2hjYrQmpSRDiLv8rTAGcyj2UdCx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,10 +43,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/IdeaProjects/browserstack-sdk/android"
+    "last_opened_file_path": "C:/IdeaProjects/SQL",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.AppTest.insertNewStudentTest">
+  <component name="RunManager" selected="TestNG.AppTest.deleteStudentsTest">
     <configuration name="AppTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SQL" />
       <extension name="coverage">
@@ -59,6 +65,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.deleteStudentsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SQL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.AppTest" />
+      <option name="METHOD_NAME" value="deleteStudentsTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AppTest.getStudentTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SQL" />
       <extension name="coverage">
@@ -70,24 +94,6 @@
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.AppTest" />
       <option name="METHOD_NAME" value="getStudentTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.getStudents" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="SQL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.AppTest" />
-      <option name="METHOD_NAME" value="getStudents" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -133,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.AppTest.deleteStudentsTest" />
+        <item itemvalue="TestNG.AppTest" />
         <item itemvalue="TestNG.AppTest.insertNewStudentTest" />
         <item itemvalue="TestNG.AppTest.getStudentsTest" />
         <item itemvalue="TestNG.AppTest.getStudentTest" />
-        <item itemvalue="TestNG.AppTest" />
-        <item itemvalue="TestNG.AppTest.getStudents" />
       </list>
     </recent_temporary>
   </component>
@@ -151,5 +157,9 @@
       <updated>1717964641982</updated>
     </task>
     <servers />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
