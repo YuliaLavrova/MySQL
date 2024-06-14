@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class AppTest {
 
@@ -40,8 +41,17 @@ public class AppTest {
         StudentDAO studentDAO = new StudentDAO();
         List<Student> list1 = studentDAO.getStudents();
         System.out.println(list1);
-        studentDAO.deleteStudentById(4);
+        studentDAO.deleteStudentById(3);
         List<Student> list2 = studentDAO.getStudents();
         System.out.println(list2);
+    }
+
+    @Test
+    public void joinStudents() throws SQLException {
+        StudentDAO studentDAO = new StudentDAO();
+        List<Student> list1 = studentDAO.getStudents();
+        System.out.println(list1);
+        Map<Student, String> map = studentDAO.studentsWithGroupNumber();
+        map.entrySet().stream().forEach(System.out::println);
     }
 }

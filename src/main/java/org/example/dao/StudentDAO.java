@@ -1,9 +1,12 @@
 package org.example.dao;
 
+import org.example.model.Group;
 import org.example.model.Student;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StudentDAO {
 
@@ -21,7 +24,7 @@ public class StudentDAO {
                 student.setStudentName(resultSet.getString("first_name"));
                 student.setStudentLastName(resultSet.getString("last_name"));
                 student.setAge(resultSet.getInt("age"));
-                student.setStudentGroup(resultSet.getInt("students_group_id"));
+                student.setStudentGroupId(resultSet.getInt("students_group_id"));
             }
         } finally {
             resultSet.close();
@@ -45,7 +48,7 @@ public class StudentDAO {
                 student.setStudentName(resultSet.getString("first_name"));
                 student.setStudentLastName(resultSet.getString("last_name"));
                 student.setAge(resultSet.getInt("age"));
-                student.setStudentGroup(resultSet.getInt("students_group_id"));
+                student.setStudentGroupId(resultSet.getInt("students_group_id"));
                 list.add(student);
             }
         } finally {
@@ -66,13 +69,14 @@ public class StudentDAO {
             preparedStatement.setString(1, student.getStudentName());
             preparedStatement.setString(2, student.getStudentLastName());
             preparedStatement.setInt(3, student.getAge());
-            preparedStatement.setInt(4, student.getStudentGroup());
+            preparedStatement.setInt(4, student.getStudentGroupId());
             preparedStatement.execute();
         } finally {
             preparedStatement.close();
             connection.close();
         }
     }
+
     public void deleteStudentById(int id) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -86,4 +90,33 @@ public class StudentDAO {
             connection.close();
         }
     }
+
+    public Map<Student, String> studentsWithGroupNumber() throws SQLException {
+        Map<Student, String> map = new HashMap<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "admin");
+            preparedStatement = connection.prepareStatement("SELECT * FROM `mydb`.`students` INNER JOIN `mydb`.`students_group` ON `students`.`students_group_id`=`students_group`.`id`;");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Group group = new Group();
+                group.setNumber(resultSet.getString("students_group.number"));
+                group.setId(resultSet.getInt("students_group.id"));
+                Student student = new Student();
+                student.setStudentName(resultSet.getString("first_name"));
+                student.setStudentLastName(resultSet.getString("last_name"));
+                student.setAge(resultSet.getInt("age"));
+                student.setStudentGroupId(resultSet.getInt("students_group_id"));
+                map.put(student, group.getNumber());
+            }
+        } finally {
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        }
+        return map;
+    }
+
 }

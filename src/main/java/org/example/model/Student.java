@@ -8,24 +8,24 @@ public class Student {
 
     private int age;
 
-    private int studentGroup;
+    private int studentGroupId;
 
     public Student(String studentName, String studentLastName, int age, int studentGroup) {
         this.studentName = studentName;
         StudentLastName = studentLastName;
         this.age = age;
-        this.studentGroup = studentGroup;
+        this.studentGroupId = studentGroup;
     }
 
     public Student() {
     }
 
-    public int getStudentGroup() {
-        return studentGroup;
+    public int getStudentGroupId() {
+        return studentGroupId;
     }
 
-    public void setStudentGroup(int studentGroup) {
-        this.studentGroup = studentGroup;
+    public void setStudentGroupId(int studentGroupId) {
+        this.studentGroupId = studentGroupId;
     }
 
     public String getStudentName() {
@@ -58,7 +58,7 @@ public class Student {
                 "studentName='" + studentName + '\'' +
                 ", StudentLastName='" + StudentLastName + '\'' +
                 ", age=" + age + '\'' +
-                ", studentGroup=" + studentGroup +
+                ", studentGroup=" + studentGroupId +
                 '}';
     }
 }
